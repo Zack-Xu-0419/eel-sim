@@ -1,0 +1,16 @@
+{
+  "calibration_status": "uncalibrated_demo",
+  "description": "Illustrative coefficients only; replace using measurements of this robot. All parameters are SI. 200000 rad/m^3 equals 0.2 rad/mL.",
+  "parameters": {
+    "volume_to_angle_rad_per_m3": 200000.0,
+    "pressure_per_angle_pa_per_rad": 20000.0,
+    "leak_resistance_pa_s_per_m3": 4000000000.0,
+    "initial_volume_m3": 0.0
+  },
+  "units": {
+    "volume_to_angle_rad_per_m3": "rad/m^3",
+    "pressure_per_angle_pa_per_rad": "Pa/rad",
+    "leak_resistance_pa_s_per_m3": "Pa*s/m^3",
+    "initial_volume_m3": "m^3"
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "status": "Effective driven ESC map conditional on frozen actuator physics; not independently measured flow",
+  "pump_dynamics": "instantaneous_static",
+  "tau_p_s": 0.0,
+  "equation": "Qpump_m3_s=gain_m3_s_per_command*(raw_PWM-neutral_command)",
+  "command_units": "raw logged PWM command units; physical pulse-width mapping unverified",
+  "flow_units": "m^3/s",
+  "command_hold": "left-held until next recorded timestamp",
+  "pump_parameters_si": {
+    "water": {
+      "gain_m3_s_per_command": 1.902152693603595e-07,
+      "neutral_command": 93.43939389243297
+    },
+    "air": {
+      "gain_m3_s_per_command": 2.0209973351631698e-07,
+      "neutral_command": 93.47522719917328
+    }
+  },
+  "pump_parameters_display_units": {
+    "water": {
+      "gain_ml_s_per_command": 0.1902152693603595,
+      "neutral_command": 93.43939389243297
+    },
+    "air": {
+      "gain_ml_s_per_command": 0.202099733516317,
+      "neutral_command": 93.47522719917328
+    }
+  },
+  "frozen_actuator_parameters_si": {
+    "water": {
+      "volume_to_angle_rad_per_m3": 28667.555985100094,
+      "leak_conductance_m3_s_per_rad": 9.471572000302143e-07,
+      "equilibrium_angle_rad": 0.0
+    },
+    "air": {
+      "volume_to_angle_rad_per_m3": 27262.95249100397,
+      "leak_conductance_m3_s_per_rad": 1.131439639258831e-06,
+      "equilibrium_angle_rad": 0.0
+    }
+  },
+  "actuator_config_path": "configs/fitted_model.json",
+  "actuator_config_sha256": "6bc56f6176031372d61216d05b62d4b590e323d40bad638157edcb28c769e8a9",
+  "operating_conditions": {
+    "water": {
+      "command_min": 34.0,
+      "command_max": 153.0,
+      "sine_frequency_hz": 0.3,
+      "esc_amplitude": 60.0,
+      "specimen": "Hard / DragonSkin30",
+      "recorded_pump_off_pwm": 91.0
+    },
+    "air": {
+      "command_min": 34.0,
+      "command_max": 153.0,
+      "sine_frequency_hz": 0.3,
+      "esc_amplitude": 60.0,
+      "specimen": "Hard / DragonSkin30",
+      "recorded_pump_off_pwm": 91.0
+    }
+  },
+  "sources": [
+    {
+      "path": "raw_runs/Hard_WATER_ESC60_0p3Hz_20260416_180434.csv",
+      "sha256": "1ac854e6e6550f0824247ad5f836d9a4f7266d5e85073ba3b4cb7800bc825bdc"
+    },
+    {
+      "path": "raw_runs/FreeDecay_Hard_WATER_20260416_182111.csv",
+      "sha256": "fcfb96d70f124c5f903d85f238e62f5068f25cdcd23da8b89dacad32d862957c"
+    },
+    {
+      "path": "raw_runs/Hard_AIR_ESC60_0p3Hz_20260416_141718.csv",
+      "sha256": "53242b800c301bea9fb6feeee4e56766b6f7c2acd98c22dfd00f27efe79e4e2b"
+    },
+    {
+      "path": "raw_runs/FreeDecay_Hard_AIR_20260416_144218.csv",
+      "sha256": "36ea30b119ff9b4a905eeae853fcb1472ea40808ee6f95bf067a5ee2e5ca353b"
+    }
+  ],
+  "limitations": [
+    "No independent flow or transferred-volume measurements",
+    "Frozen kV and G inherit the prior pump-flow scale",
+    "Only ESC amplitude 60 at 0.3 Hz raw driven trials are fitted",
+    "Fitted neutral can absorb actuator/reference errors; it is not a measured ESC neutral",
+    "No pump lag, saturation, deadband, asymmetry, angle offset or phase correction is fitted",
+    "Logged command timing between samples is unknown; midpoint sensitivity is reported",
+    "Same-record time holdout is not independent operating-condition validation",
+    "Driven neutral and recorded pump-off command disagree; no automatic off-command override",
+    "Extrapolation outside tested command/load/supply conditions is unverified"
+  ]
+}

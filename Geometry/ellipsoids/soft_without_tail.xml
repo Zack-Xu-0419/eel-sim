@@ -1,0 +1,570 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="soft_without_tail">
+  <compiler angle="degree" />
+  <option timestep="0.001" integrator="implicitfast" gravity="0 0 -9.81" density="0" viscosity="0">
+    <flag contact="disable" />
+  </option>
+  <visual>
+    <global offwidth="1600" offheight="900" />
+  </visual>
+  <asset>
+    <texture type="skybox" builtin="gradient" width="64" height="64" rgb1="0.95 0.96 0.98" rgb2="0.95 0.96 0.98" />
+    <mesh name="slice_mesh" file="../generated/section_n10_slice.obj" />
+    <mesh name="rigid_start_mesh" file="../generated/section_n10_rigid_start.obj" />
+    <mesh name="rigid_end_mesh" file="../generated/section_n10_rigid_end.obj" />
+    <mesh name="head" file="../head_rx90.stl" scale=".001 .001 .001" />
+  </asset>
+  <worldbody>
+    <light pos="0 -0.3 0.5" dir="0 0 -1" />
+    <light pos="-0.3 0.1 0.3" dir="1 0 -1" />
+    <body name="fixture">
+      <freejoint name="eel_root" />
+      <body name="module_0_slice_0" pos="0 0 0">
+        <site name="module_0_section_base" pos="0 0 0" size="0.002" rgba="0.1 0.8 0.2 1" />
+        <inertial pos="0.01825 8.62289950507e-06 -6.24260771453e-06" mass="0.19138089172" fullinertia="0.000284866501964 0.000239218907262 8.81421268671e-05 0 0 1.21990316425e-07" />
+        <site name="module_0_soft_start" pos="0.026 0 0" size="0.002" rgba="0.2 0.7 0.9 1" />
+        <geom name="module_0_rigid_start_visual" type="mesh" mesh="rigid_start_mesh" pos="0 0 0" rgba="0.76 0.78 0.81 1" contype="0" conaffinity="0" mass="0" />
+        <site name="module_0_rigid_start_outer" pos="0 0 0" size="0.0015" rgba="0.5 0.5 0.5 1" />
+        <site name="module_0_rigid_start_inner" pos="0.026 0 0" size="0.0015" rgba="0.5 0.5 0.5 1" />
+        <geom name="module_0_slice_visual_0" type="mesh" mesh="slice_mesh" pos="0.026 0 0" rgba="0.22 0.42 0.67 1" contype="0" conaffinity="0" mass="0" />
+        <site name="module_0_marker_0" pos="0.03125 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+        <body name="module_0_slice_1" pos="0.0365 0 0">
+          <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+          <joint name="module_0_bend_1" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+          <site name="module_0_hinge_1" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+          <geom name="module_0_slice_visual_1" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.34 0.54 0.79 1" contype="0" conaffinity="0" mass="0" />
+          <site name="module_0_marker_1" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+          <body name="module_0_slice_2" pos="0.0105 0 0">
+            <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+            <joint name="module_0_bend_2" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+            <site name="module_0_hinge_2" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+            <geom name="module_0_slice_visual_2" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.22 0.42 0.67 1" contype="0" conaffinity="0" mass="0" />
+            <site name="module_0_marker_2" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+            <body name="module_0_slice_3" pos="0.0105 0 0">
+              <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+              <joint name="module_0_bend_3" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+              <site name="module_0_hinge_3" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+              <geom name="module_0_slice_visual_3" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.34 0.54 0.79 1" contype="0" conaffinity="0" mass="0" />
+              <site name="module_0_marker_3" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+              <body name="module_0_slice_4" pos="0.0105 0 0">
+                <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                <joint name="module_0_bend_4" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                <site name="module_0_hinge_4" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                <geom name="module_0_slice_visual_4" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.22 0.42 0.67 1" contype="0" conaffinity="0" mass="0" />
+                <site name="module_0_marker_4" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                <body name="module_0_slice_5" pos="0.0105 0 0">
+                  <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                  <joint name="module_0_bend_5" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                  <site name="module_0_hinge_5" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                  <geom name="module_0_slice_visual_5" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.34 0.54 0.79 1" contype="0" conaffinity="0" mass="0" />
+                  <site name="module_0_marker_5" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                  <body name="module_0_slice_6" pos="0.0105 0 0">
+                    <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                    <joint name="module_0_bend_6" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                    <site name="module_0_hinge_6" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                    <geom name="module_0_slice_visual_6" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.22 0.42 0.67 1" contype="0" conaffinity="0" mass="0" />
+                    <site name="module_0_marker_6" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                    <body name="module_0_slice_7" pos="0.0105 0 0">
+                      <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                      <joint name="module_0_bend_7" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                      <site name="module_0_hinge_7" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                      <geom name="module_0_slice_visual_7" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.34 0.54 0.79 1" contype="0" conaffinity="0" mass="0" />
+                      <site name="module_0_marker_7" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                      <body name="module_0_slice_8" pos="0.0105 0 0">
+                        <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                        <joint name="module_0_bend_8" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                        <site name="module_0_hinge_8" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                        <geom name="module_0_slice_visual_8" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.22 0.42 0.67 1" contype="0" conaffinity="0" mass="0" />
+                        <site name="module_0_marker_8" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                        <body name="module_0_slice_9" pos="0.0105 0 0">
+                          <inertial pos="0.01825 8.62289950507e-06 -6.24260771453e-06" mass="0.19138089172" fullinertia="0.000284866501964 0.000239218907262 8.81421268671e-05 0 0 1.21990316425e-07" />
+                          <joint name="module_0_bend_9" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                          <site name="module_0_hinge_9" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                          <geom name="module_0_slice_visual_9" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.34 0.54 0.79 1" contype="0" conaffinity="0" mass="0" />
+                          <site name="module_0_marker_9" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                          <site name="module_0_soft_end" pos="0.0105 0 0" size="0.002" rgba="0.2 0.7 0.9 1" />
+                          <geom name="module_0_rigid_end_visual" type="mesh" mesh="rigid_end_mesh" pos="0.0105 0 0" rgba="0.76 0.78 0.81 1" contype="0" conaffinity="0" mass="0" />
+                          <site name="module_0_rigid_end_inner" pos="0.0105 0 0" size="0.0015" rgba="0.5 0.5 0.5 1" />
+                          <site name="module_0_rigid_end_outer" pos="0.0365 0 0" size="0.0015" rgba="0.5 0.5 0.5 1" />
+                          <site name="module_0_section_tip" pos="0.0365 0 0" size="0.003" rgba="0.1 0.8 0.2 1" />
+                          <geom name="module_0_rigid_end_fluid" type="ellipsoid" pos="0.0235 0 0" size="0.013 0.04 0.08" fluidshape="ellipsoid" mass="0" contype="0" conaffinity="0" group="3" rgba=".1 .65 .85 .35" />
+                          <body name="module_1_slice_0" pos="0.0365 0 0">
+                            <site name="module_1_section_base" pos="0 0 0" size="0.002" rgba="0.1 0.8 0.2 1" />
+                            <inertial pos="0.01825 8.62289950507e-06 -6.24260771453e-06" mass="0.19138089172" fullinertia="0.000284866501964 0.000239218907262 8.81421268671e-05 0 0 1.21990316425e-07" />
+                            <site name="module_1_soft_start" pos="0.026 0 0" size="0.002" rgba="0.2 0.7 0.9 1" />
+                            <geom name="module_1_rigid_start_visual" type="mesh" mesh="rigid_start_mesh" pos="0 0 0" rgba="0.76 0.78 0.81 1" contype="0" conaffinity="0" mass="0" />
+                            <site name="module_1_rigid_start_outer" pos="0 0 0" size="0.0015" rgba="0.5 0.5 0.5 1" />
+                            <site name="module_1_rigid_start_inner" pos="0.026 0 0" size="0.0015" rgba="0.5 0.5 0.5 1" />
+                            <geom name="module_1_slice_visual_0" type="mesh" mesh="slice_mesh" pos="0.026 0 0" rgba="0.12 0.57 0.54 1" contype="0" conaffinity="0" mass="0" />
+                            <site name="module_1_marker_0" pos="0.03125 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                            <body name="module_1_slice_1" pos="0.0365 0 0">
+                              <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                              <joint name="module_1_bend_1" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                              <site name="module_1_hinge_1" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                              <geom name="module_1_slice_visual_1" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.24 0.69 0.66 1" contype="0" conaffinity="0" mass="0" />
+                              <site name="module_1_marker_1" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                              <body name="module_1_slice_2" pos="0.0105 0 0">
+                                <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                                <joint name="module_1_bend_2" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                <site name="module_1_hinge_2" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                <geom name="module_1_slice_visual_2" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.12 0.57 0.54 1" contype="0" conaffinity="0" mass="0" />
+                                <site name="module_1_marker_2" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                <body name="module_1_slice_3" pos="0.0105 0 0">
+                                  <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                                  <joint name="module_1_bend_3" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                  <site name="module_1_hinge_3" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                  <geom name="module_1_slice_visual_3" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.24 0.69 0.66 1" contype="0" conaffinity="0" mass="0" />
+                                  <site name="module_1_marker_3" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                  <body name="module_1_slice_4" pos="0.0105 0 0">
+                                    <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                                    <joint name="module_1_bend_4" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                    <site name="module_1_hinge_4" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                    <geom name="module_1_slice_visual_4" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.12 0.57 0.54 1" contype="0" conaffinity="0" mass="0" />
+                                    <site name="module_1_marker_4" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                    <body name="module_1_slice_5" pos="0.0105 0 0">
+                                      <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                                      <joint name="module_1_bend_5" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                      <site name="module_1_hinge_5" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                      <geom name="module_1_slice_visual_5" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.24 0.69 0.66 1" contype="0" conaffinity="0" mass="0" />
+                                      <site name="module_1_marker_5" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                      <body name="module_1_slice_6" pos="0.0105 0 0">
+                                        <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                                        <joint name="module_1_bend_6" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                        <site name="module_1_hinge_6" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                        <geom name="module_1_slice_visual_6" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.12 0.57 0.54 1" contype="0" conaffinity="0" mass="0" />
+                                        <site name="module_1_marker_6" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                        <body name="module_1_slice_7" pos="0.0105 0 0">
+                                          <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                                          <joint name="module_1_bend_7" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                          <site name="module_1_hinge_7" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                          <geom name="module_1_slice_visual_7" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.24 0.69 0.66 1" contype="0" conaffinity="0" mass="0" />
+                                          <site name="module_1_marker_7" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                          <body name="module_1_slice_8" pos="0.0105 0 0">
+                                            <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                                            <joint name="module_1_bend_8" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                            <site name="module_1_hinge_8" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                            <geom name="module_1_slice_visual_8" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.12 0.57 0.54 1" contype="0" conaffinity="0" mass="0" />
+                                            <site name="module_1_marker_8" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                            <body name="module_1_slice_9" pos="0.0105 0 0">
+                                              <inertial pos="0.01825 8.62289950507e-06 -6.24260771453e-06" mass="0.19138089172" fullinertia="0.000284866501964 0.000239218907262 8.81421268671e-05 0 0 1.21990316425e-07" />
+                                              <joint name="module_1_bend_9" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                              <site name="module_1_hinge_9" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                              <geom name="module_1_slice_visual_9" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.24 0.69 0.66 1" contype="0" conaffinity="0" mass="0" />
+                                              <site name="module_1_marker_9" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                              <site name="module_1_soft_end" pos="0.0105 0 0" size="0.002" rgba="0.2 0.7 0.9 1" />
+                                              <geom name="module_1_rigid_end_visual" type="mesh" mesh="rigid_end_mesh" pos="0.0105 0 0" rgba="0.76 0.78 0.81 1" contype="0" conaffinity="0" mass="0" />
+                                              <site name="module_1_rigid_end_inner" pos="0.0105 0 0" size="0.0015" rgba="0.5 0.5 0.5 1" />
+                                              <site name="module_1_rigid_end_outer" pos="0.0365 0 0" size="0.0015" rgba="0.5 0.5 0.5 1" />
+                                              <site name="module_1_section_tip" pos="0.0365 0 0" size="0.003" rgba="0.1 0.8 0.2 1" />
+                                              <geom name="module_1_rigid_end_fluid" type="ellipsoid" pos="0.0235 0 0" size="0.013 0.04 0.08" fluidshape="ellipsoid" mass="0" contype="0" conaffinity="0" group="3" rgba=".1 .65 .85 .35" />
+                                              <body name="module_2_slice_0" pos="0.0365 0 0">
+                                                <site name="module_2_section_base" pos="0 0 0" size="0.002" rgba="0.1 0.8 0.2 1" />
+                                                <inertial pos="0.01825 8.62289950507e-06 -6.24260771453e-06" mass="0.19138089172" fullinertia="0.000284866501964 0.000239218907262 8.81421268671e-05 0 0 1.21990316425e-07" />
+                                                <site name="module_2_soft_start" pos="0.026 0 0" size="0.002" rgba="0.2 0.7 0.9 1" />
+                                                <geom name="module_2_rigid_start_visual" type="mesh" mesh="rigid_start_mesh" pos="0 0 0" rgba="0.76 0.78 0.81 1" contype="0" conaffinity="0" mass="0" />
+                                                <site name="module_2_rigid_start_outer" pos="0 0 0" size="0.0015" rgba="0.5 0.5 0.5 1" />
+                                                <site name="module_2_rigid_start_inner" pos="0.026 0 0" size="0.0015" rgba="0.5 0.5 0.5 1" />
+                                                <geom name="module_2_slice_visual_0" type="mesh" mesh="slice_mesh" pos="0.026 0 0" rgba="0.65 0.4 0.21 1" contype="0" conaffinity="0" mass="0" />
+                                                <site name="module_2_marker_0" pos="0.03125 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                                <body name="module_2_slice_1" pos="0.0365 0 0">
+                                                  <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                                                  <joint name="module_2_bend_1" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                                  <site name="module_2_hinge_1" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                                  <geom name="module_2_slice_visual_1" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.77 0.52 0.33 1" contype="0" conaffinity="0" mass="0" />
+                                                  <site name="module_2_marker_1" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                                  <body name="module_2_slice_2" pos="0.0105 0 0">
+                                                    <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                                                    <joint name="module_2_bend_2" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                                    <site name="module_2_hinge_2" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                                    <geom name="module_2_slice_visual_2" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.65 0.4 0.21 1" contype="0" conaffinity="0" mass="0" />
+                                                    <site name="module_2_marker_2" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                                    <body name="module_2_slice_3" pos="0.0105 0 0">
+                                                      <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                                                      <joint name="module_2_bend_3" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                                      <site name="module_2_hinge_3" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                                      <geom name="module_2_slice_visual_3" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.77 0.52 0.33 1" contype="0" conaffinity="0" mass="0" />
+                                                      <site name="module_2_marker_3" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                                      <body name="module_2_slice_4" pos="0.0105 0 0">
+                                                        <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                                                        <joint name="module_2_bend_4" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                                        <site name="module_2_hinge_4" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                                        <geom name="module_2_slice_visual_4" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.65 0.4 0.21 1" contype="0" conaffinity="0" mass="0" />
+                                                        <site name="module_2_marker_4" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                                        <body name="module_2_slice_5" pos="0.0105 0 0">
+                                                          <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                                                          <joint name="module_2_bend_5" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                                          <site name="module_2_hinge_5" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                                          <geom name="module_2_slice_visual_5" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.77 0.52 0.33 1" contype="0" conaffinity="0" mass="0" />
+                                                          <site name="module_2_marker_5" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                                          <body name="module_2_slice_6" pos="0.0105 0 0">
+                                                            <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                                                            <joint name="module_2_bend_6" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                                            <site name="module_2_hinge_6" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                                            <geom name="module_2_slice_visual_6" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.65 0.4 0.21 1" contype="0" conaffinity="0" mass="0" />
+                                                            <site name="module_2_marker_6" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                                            <body name="module_2_slice_7" pos="0.0105 0 0">
+                                                              <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                                                              <joint name="module_2_bend_7" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                                              <site name="module_2_hinge_7" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                                              <geom name="module_2_slice_visual_7" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.77 0.52 0.33 1" contype="0" conaffinity="0" mass="0" />
+                                                              <site name="module_2_marker_7" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                                              <body name="module_2_slice_8" pos="0.0105 0 0">
+                                                                <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                                                                <joint name="module_2_bend_8" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                                                <site name="module_2_hinge_8" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                                                <geom name="module_2_slice_visual_8" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.65 0.4 0.21 1" contype="0" conaffinity="0" mass="0" />
+                                                                <site name="module_2_marker_8" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                                                <body name="module_2_slice_9" pos="0.0105 0 0">
+                                                                  <inertial pos="0.01825 8.62289950507e-06 -6.24260771453e-06" mass="0.19138089172" fullinertia="0.000284866501964 0.000239218907262 8.81421268671e-05 0 0 1.21990316425e-07" />
+                                                                  <joint name="module_2_bend_9" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                                                  <site name="module_2_hinge_9" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                                                  <geom name="module_2_slice_visual_9" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.77 0.52 0.33 1" contype="0" conaffinity="0" mass="0" />
+                                                                  <site name="module_2_marker_9" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                                                  <site name="module_2_soft_end" pos="0.0105 0 0" size="0.002" rgba="0.2 0.7 0.9 1" />
+                                                                  <geom name="module_2_rigid_end_visual" type="mesh" mesh="rigid_end_mesh" pos="0.0105 0 0" rgba="0.76 0.78 0.81 1" contype="0" conaffinity="0" mass="0" />
+                                                                  <site name="module_2_rigid_end_inner" pos="0.0105 0 0" size="0.0015" rgba="0.5 0.5 0.5 1" />
+                                                                  <site name="module_2_rigid_end_outer" pos="0.0365 0 0" size="0.0015" rgba="0.5 0.5 0.5 1" />
+                                                                  <site name="module_2_section_tip" pos="0.0365 0 0" size="0.003" rgba="0.1 0.8 0.2 1" />
+                                                                  <geom name="module_2_rigid_end_fluid" type="ellipsoid" pos="0.0235 0 0" size="0.013 0.04 0.08" fluidshape="ellipsoid" mass="0" contype="0" conaffinity="0" group="3" rgba=".1 .65 .85 .35" />
+                                                                  <body name="module_3_slice_0" pos="0.0365 0 0">
+                                                                    <site name="module_3_section_base" pos="0 0 0" size="0.002" rgba="0.1 0.8 0.2 1" />
+                                                                    <inertial pos="0.01825 8.62289950507e-06 -6.24260771453e-06" mass="0.19138089172" fullinertia="0.000284866501964 0.000239218907262 8.81421268671e-05 0 0 1.21990316425e-07" />
+                                                                    <site name="module_3_soft_start" pos="0.026 0 0" size="0.002" rgba="0.2 0.7 0.9 1" />
+                                                                    <geom name="module_3_rigid_start_visual" type="mesh" mesh="rigid_start_mesh" pos="0 0 0" rgba="0.76 0.78 0.81 1" contype="0" conaffinity="0" mass="0" />
+                                                                    <site name="module_3_rigid_start_outer" pos="0 0 0" size="0.0015" rgba="0.5 0.5 0.5 1" />
+                                                                    <site name="module_3_rigid_start_inner" pos="0.026 0 0" size="0.0015" rgba="0.5 0.5 0.5 1" />
+                                                                    <geom name="module_3_slice_visual_0" type="mesh" mesh="slice_mesh" pos="0.026 0 0" rgba="0.53 0.38 0.67 1" contype="0" conaffinity="0" mass="0" />
+                                                                    <site name="module_3_marker_0" pos="0.03125 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                                                    <body name="module_3_slice_1" pos="0.0365 0 0">
+                                                                      <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                                                                      <joint name="module_3_bend_1" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                                                      <site name="module_3_hinge_1" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                                                      <geom name="module_3_slice_visual_1" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.65 0.5 0.79 1" contype="0" conaffinity="0" mass="0" />
+                                                                      <site name="module_3_marker_1" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                                                      <body name="module_3_slice_2" pos="0.0105 0 0">
+                                                                        <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                                                                        <joint name="module_3_bend_2" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                                                        <site name="module_3_hinge_2" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                                                        <geom name="module_3_slice_visual_2" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.53 0.38 0.67 1" contype="0" conaffinity="0" mass="0" />
+                                                                        <site name="module_3_marker_2" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                                                        <body name="module_3_slice_3" pos="0.0105 0 0">
+                                                                          <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                                                                          <joint name="module_3_bend_3" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                                                          <site name="module_3_hinge_3" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                                                          <geom name="module_3_slice_visual_3" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.65 0.5 0.79 1" contype="0" conaffinity="0" mass="0" />
+                                                                          <site name="module_3_marker_3" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                                                          <body name="module_3_slice_4" pos="0.0105 0 0">
+                                                                            <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                                                                            <joint name="module_3_bend_4" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                                                            <site name="module_3_hinge_4" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                                                            <geom name="module_3_slice_visual_4" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.53 0.38 0.67 1" contype="0" conaffinity="0" mass="0" />
+                                                                            <site name="module_3_marker_4" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                                                            <body name="module_3_slice_5" pos="0.0105 0 0">
+                                                                              <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                                                                              <joint name="module_3_bend_5" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                                                              <site name="module_3_hinge_5" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                                                              <geom name="module_3_slice_visual_5" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.65 0.5 0.79 1" contype="0" conaffinity="0" mass="0" />
+                                                                              <site name="module_3_marker_5" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                                                              <body name="module_3_slice_6" pos="0.0105 0 0">
+                                                                                <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                                                                                <joint name="module_3_bend_6" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                                                                <site name="module_3_hinge_6" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                                                                <geom name="module_3_slice_visual_6" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.53 0.38 0.67 1" contype="0" conaffinity="0" mass="0" />
+                                                                                <site name="module_3_marker_6" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                                                                <body name="module_3_slice_7" pos="0.0105 0 0">
+                                                                                  <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                                                                                  <joint name="module_3_bend_7" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                                                                  <site name="module_3_hinge_7" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                                                                  <geom name="module_3_slice_visual_7" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.65 0.5 0.79 1" contype="0" conaffinity="0" mass="0" />
+                                                                                  <site name="module_3_marker_7" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                                                                  <body name="module_3_slice_8" pos="0.0105 0 0">
+                                                                                    <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                                                                                    <joint name="module_3_bend_8" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                                                                    <site name="module_3_hinge_8" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                                                                    <geom name="module_3_slice_visual_8" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.53 0.38 0.67 1" contype="0" conaffinity="0" mass="0" />
+                                                                                    <site name="module_3_marker_8" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                                                                    <body name="module_3_slice_9" pos="0.0105 0 0">
+                                                                                      <inertial pos="0.01825 8.62289950507e-06 -6.24260771453e-06" mass="0.19138089172" fullinertia="0.000284866501964 0.000239218907262 8.81421268671e-05 0 0 1.21990316425e-07" />
+                                                                                      <joint name="module_3_bend_9" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                                                                      <site name="module_3_hinge_9" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                                                                      <geom name="module_3_slice_visual_9" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.65 0.5 0.79 1" contype="0" conaffinity="0" mass="0" />
+                                                                                      <site name="module_3_marker_9" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                                                                      <site name="module_3_soft_end" pos="0.0105 0 0" size="0.002" rgba="0.2 0.7 0.9 1" />
+                                                                                      <geom name="module_3_rigid_end_visual" type="mesh" mesh="rigid_end_mesh" pos="0.0105 0 0" rgba="0.76 0.78 0.81 1" contype="0" conaffinity="0" mass="0" />
+                                                                                      <site name="module_3_rigid_end_inner" pos="0.0105 0 0" size="0.0015" rgba="0.5 0.5 0.5 1" />
+                                                                                      <site name="module_3_rigid_end_outer" pos="0.0365 0 0" size="0.0015" rgba="0.5 0.5 0.5 1" />
+                                                                                      <site name="module_3_section_tip" pos="0.0365 0 0" size="0.003" rgba="0.1 0.8 0.2 1" />
+                                                                                      <geom name="module_3_rigid_end_fluid" type="ellipsoid" pos="0.0235 0 0" size="0.013 0.04 0.08" fluidshape="ellipsoid" mass="0" contype="0" conaffinity="0" group="3" rgba=".1 .65 .85 .35" />
+                                                                                      <body name="module_4_slice_0" pos="0.0365 0 0">
+                                                                                        <site name="module_4_section_base" pos="0 0 0" size="0.002" rgba="0.1 0.8 0.2 1" />
+                                                                                        <inertial pos="0.01825 8.62289950507e-06 -6.24260771453e-06" mass="0.19138089172" fullinertia="0.000284866501964 0.000239218907262 8.81421268671e-05 0 0 1.21990316425e-07" />
+                                                                                        <site name="module_4_soft_start" pos="0.026 0 0" size="0.002" rgba="0.2 0.7 0.9 1" />
+                                                                                        <geom name="module_4_rigid_start_visual" type="mesh" mesh="rigid_start_mesh" pos="0 0 0" rgba="0.76 0.78 0.81 1" contype="0" conaffinity="0" mass="0" />
+                                                                                        <site name="module_4_rigid_start_outer" pos="0 0 0" size="0.0015" rgba="0.5 0.5 0.5 1" />
+                                                                                        <site name="module_4_rigid_start_inner" pos="0.026 0 0" size="0.0015" rgba="0.5 0.5 0.5 1" />
+                                                                                        <geom name="module_4_slice_visual_0" type="mesh" mesh="slice_mesh" pos="0.026 0 0" rgba="0.57 0.59 0.18 1" contype="0" conaffinity="0" mass="0" />
+                                                                                        <site name="module_4_marker_0" pos="0.03125 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                                                                        <body name="module_4_slice_1" pos="0.0365 0 0">
+                                                                                          <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                                                                                          <joint name="module_4_bend_1" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                                                                          <site name="module_4_hinge_1" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                                                                          <geom name="module_4_slice_visual_1" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.69 0.71 0.3 1" contype="0" conaffinity="0" mass="0" />
+                                                                                          <site name="module_4_marker_1" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                                                                          <body name="module_4_slice_2" pos="0.0105 0 0">
+                                                                                            <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                                                                                            <joint name="module_4_bend_2" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                                                                            <site name="module_4_hinge_2" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                                                                            <geom name="module_4_slice_visual_2" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.57 0.59 0.18 1" contype="0" conaffinity="0" mass="0" />
+                                                                                            <site name="module_4_marker_2" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                                                                            <body name="module_4_slice_3" pos="0.0105 0 0">
+                                                                                              <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                                                                                              <joint name="module_4_bend_3" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                                                                              <site name="module_4_hinge_3" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                                                                              <geom name="module_4_slice_visual_3" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.69 0.71 0.3 1" contype="0" conaffinity="0" mass="0" />
+                                                                                              <site name="module_4_marker_3" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                                                                              <body name="module_4_slice_4" pos="0.0105 0 0">
+                                                                                                <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                                                                                                <joint name="module_4_bend_4" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                                                                                <site name="module_4_hinge_4" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                                                                                <geom name="module_4_slice_visual_4" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.57 0.59 0.18 1" contype="0" conaffinity="0" mass="0" />
+                                                                                                <site name="module_4_marker_4" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                                                                                <body name="module_4_slice_5" pos="0.0105 0 0">
+                                                                                                  <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                                                                                                  <joint name="module_4_bend_5" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                                                                                  <site name="module_4_hinge_5" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                                                                                  <geom name="module_4_slice_visual_5" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.69 0.71 0.3 1" contype="0" conaffinity="0" mass="0" />
+                                                                                                  <site name="module_4_marker_5" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                                                                                  <body name="module_4_slice_6" pos="0.0105 0 0">
+                                                                                                    <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                                                                                                    <joint name="module_4_bend_6" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                                                                                    <site name="module_4_hinge_6" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                                                                                    <geom name="module_4_slice_visual_6" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.57 0.59 0.18 1" contype="0" conaffinity="0" mass="0" />
+                                                                                                    <site name="module_4_marker_6" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                                                                                    <body name="module_4_slice_7" pos="0.0105 0 0">
+                                                                                                      <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                                                                                                      <joint name="module_4_bend_7" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                                                                                      <site name="module_4_hinge_7" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                                                                                      <geom name="module_4_slice_visual_7" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.69 0.71 0.3 1" contype="0" conaffinity="0" mass="0" />
+                                                                                                      <site name="module_4_marker_7" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                                                                                      <body name="module_4_slice_8" pos="0.0105 0 0">
+                                                                                                        <inertial pos="0.00525 8.62289950507e-06 -6.24260771453e-06" mass="0.0550547770701" fullinertia="8.19478978251e-05 6.32099865145e-05 1.97495428393e-05 0 0 3.50931047251e-08" />
+                                                                                                        <joint name="module_4_bend_8" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                                                                                        <site name="module_4_hinge_8" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                                                                                        <geom name="module_4_slice_visual_8" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.57 0.59 0.18 1" contype="0" conaffinity="0" mass="0" />
+                                                                                                        <site name="module_4_marker_8" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                                                                                        <body name="module_4_slice_9" pos="0.0105 0 0">
+                                                                                                          <inertial pos="0.01825 8.62289950507e-06 -6.24260771453e-06" mass="0.19138089172" fullinertia="0.000284866501964 0.000239218907262 8.81421268671e-05 0 0 1.21990316425e-07" />
+                                                                                                          <joint name="module_4_bend_9" type="hinge" axis="0 0 1" limited="true" range="-40 40" stiffness="1.8" damping="0.09" springref="0" solreflimit="0.004 1" solimplimit="0.95 0.99 0.001" />
+                                                                                                          <site name="module_4_hinge_9" type="sphere" size="0.0025" pos="0 0 0.083" rgba="1 0.5 0.1 1" />
+                                                                                                          <geom name="module_4_slice_visual_9" type="mesh" mesh="slice_mesh" pos="0 0 0" rgba="0.69 0.71 0.3 1" contype="0" conaffinity="0" mass="0" />
+                                                                                                          <site name="module_4_marker_9" pos="0.00525 0 0.08" size="0.002" rgba="0.9 0.3 0.15 1" />
+                                                                                                          <site name="module_4_soft_end" pos="0.0105 0 0" size="0.002" rgba="0.2 0.7 0.9 1" />
+                                                                                                          <geom name="module_4_rigid_end_visual" type="mesh" mesh="rigid_end_mesh" pos="0.0105 0 0" rgba="0.76 0.78 0.81 1" contype="0" conaffinity="0" mass="0" />
+                                                                                                          <site name="module_4_rigid_end_inner" pos="0.0105 0 0" size="0.0015" rgba="0.5 0.5 0.5 1" />
+                                                                                                          <site name="module_4_rigid_end_outer" pos="0.0365 0 0" size="0.0015" rgba="0.5 0.5 0.5 1" />
+                                                                                                          <site name="module_4_section_tip" pos="0.0365 0 0" size="0.003" rgba="0.1 0.8 0.2 1" />
+                                                                                                          <geom name="module_4_rigid_end_fluid" type="ellipsoid" pos="0.0235 0 0" size="0.013 0.04 0.08" fluidshape="ellipsoid" mass="0" contype="0" conaffinity="0" group="3" rgba=".1 .65 .85 .35" />
+                                                                                                        </body>
+                                                                                                      </body>
+                                                                                                    </body>
+                                                                                                  </body>
+                                                                                                </body>
+                                                                                                <geom name="module_4_soft_span_fluid" type="ellipsoid" pos="0.0105 0 0" size="0.0525 0.04 0.08" fluidshape="ellipsoid" mass="0" contype="0" conaffinity="0" group="3" rgba=".1 .65 .85 .35" />
+                                                                                              </body>
+                                                                                            </body>
+                                                                                          </body>
+                                                                                        </body>
+                                                                                        <geom name="module_4_rigid_start_fluid" type="ellipsoid" pos="0.013 0 0" size="0.013 0.04 0.08" fluidshape="ellipsoid" mass="0" contype="0" conaffinity="0" group="3" rgba=".1 .65 .85 .35" />
+                                                                                      </body>
+                                                                                    </body>
+                                                                                  </body>
+                                                                                </body>
+                                                                              </body>
+                                                                            </body>
+                                                                            <geom name="module_3_soft_span_fluid" type="ellipsoid" pos="0.0105 0 0" size="0.0525 0.04 0.08" fluidshape="ellipsoid" mass="0" contype="0" conaffinity="0" group="3" rgba=".1 .65 .85 .35" />
+                                                                          </body>
+                                                                        </body>
+                                                                      </body>
+                                                                    </body>
+                                                                    <geom name="module_3_rigid_start_fluid" type="ellipsoid" pos="0.013 0 0" size="0.013 0.04 0.08" fluidshape="ellipsoid" mass="0" contype="0" conaffinity="0" group="3" rgba=".1 .65 .85 .35" />
+                                                                  </body>
+                                                                </body>
+                                                              </body>
+                                                            </body>
+                                                          </body>
+                                                        </body>
+                                                        <geom name="module_2_soft_span_fluid" type="ellipsoid" pos="0.0105 0 0" size="0.0525 0.04 0.08" fluidshape="ellipsoid" mass="0" contype="0" conaffinity="0" group="3" rgba=".1 .65 .85 .35" />
+                                                      </body>
+                                                    </body>
+                                                  </body>
+                                                </body>
+                                                <geom name="module_2_rigid_start_fluid" type="ellipsoid" pos="0.013 0 0" size="0.013 0.04 0.08" fluidshape="ellipsoid" mass="0" contype="0" conaffinity="0" group="3" rgba=".1 .65 .85 .35" />
+                                              </body>
+                                            </body>
+                                          </body>
+                                        </body>
+                                      </body>
+                                    </body>
+                                    <geom name="module_1_soft_span_fluid" type="ellipsoid" pos="0.0105 0 0" size="0.0525 0.04 0.08" fluidshape="ellipsoid" mass="0" contype="0" conaffinity="0" group="3" rgba=".1 .65 .85 .35" />
+                                  </body>
+                                </body>
+                              </body>
+                            </body>
+                            <geom name="module_1_rigid_start_fluid" type="ellipsoid" pos="0.013 0 0" size="0.013 0.04 0.08" fluidshape="ellipsoid" mass="0" contype="0" conaffinity="0" group="3" rgba=".1 .65 .85 .35" />
+                          </body>
+                        </body>
+                      </body>
+                    </body>
+                  </body>
+                </body>
+                <geom name="module_0_soft_span_fluid" type="ellipsoid" pos="0.0105 0 0" size="0.0525 0.04 0.08" fluidshape="ellipsoid" mass="0" contype="0" conaffinity="0" group="3" rgba=".1 .65 .85 .35" />
+              </body>
+            </body>
+          </body>
+        </body>
+        <geom name="module_0_rigid_start_fluid" type="ellipsoid" pos="0.013 0 0" size="0.013 0.04 0.08" fluidshape="ellipsoid" mass="0" contype="0" conaffinity="0" group="3" rgba=".1 .65 .85 .35" />
+        <geom name="module_0_head" type="mesh" mesh="head" pos="5.45457e-05 0.04130961 -0.086" euler="0 0 -90" mass="0" contype="0" conaffinity="0" rgba=".28 .34 .41 1" />
+        <geom name="module_0_head_fluid" type="ellipsoid" pos="-0.09156 0.0 0.0" size=".104595 .03178 .08" fluidshape="ellipsoid" mass="0" contype="0" conaffinity="0" group="3" rgba=".1 .65 .85 .35" />
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+    <motor name="module_0_test_torque_1" joint="module_0_bend_1" gear="1" />
+    <motor name="module_0_test_torque_2" joint="module_0_bend_2" gear="1" />
+    <motor name="module_0_test_torque_3" joint="module_0_bend_3" gear="1" />
+    <motor name="module_0_test_torque_4" joint="module_0_bend_4" gear="1" />
+    <motor name="module_0_test_torque_5" joint="module_0_bend_5" gear="1" />
+    <motor name="module_0_test_torque_6" joint="module_0_bend_6" gear="1" />
+    <motor name="module_0_test_torque_7" joint="module_0_bend_7" gear="1" />
+    <motor name="module_0_test_torque_8" joint="module_0_bend_8" gear="1" />
+    <motor name="module_0_test_torque_9" joint="module_0_bend_9" gear="1" />
+    <motor name="module_1_test_torque_1" joint="module_1_bend_1" gear="1" />
+    <motor name="module_1_test_torque_2" joint="module_1_bend_2" gear="1" />
+    <motor name="module_1_test_torque_3" joint="module_1_bend_3" gear="1" />
+    <motor name="module_1_test_torque_4" joint="module_1_bend_4" gear="1" />
+    <motor name="module_1_test_torque_5" joint="module_1_bend_5" gear="1" />
+    <motor name="module_1_test_torque_6" joint="module_1_bend_6" gear="1" />
+    <motor name="module_1_test_torque_7" joint="module_1_bend_7" gear="1" />
+    <motor name="module_1_test_torque_8" joint="module_1_bend_8" gear="1" />
+    <motor name="module_1_test_torque_9" joint="module_1_bend_9" gear="1" />
+    <motor name="module_2_test_torque_1" joint="module_2_bend_1" gear="1" />
+    <motor name="module_2_test_torque_2" joint="module_2_bend_2" gear="1" />
+    <motor name="module_2_test_torque_3" joint="module_2_bend_3" gear="1" />
+    <motor name="module_2_test_torque_4" joint="module_2_bend_4" gear="1" />
+    <motor name="module_2_test_torque_5" joint="module_2_bend_5" gear="1" />
+    <motor name="module_2_test_torque_6" joint="module_2_bend_6" gear="1" />
+    <motor name="module_2_test_torque_7" joint="module_2_bend_7" gear="1" />
+    <motor name="module_2_test_torque_8" joint="module_2_bend_8" gear="1" />
+    <motor name="module_2_test_torque_9" joint="module_2_bend_9" gear="1" />
+    <motor name="module_3_test_torque_1" joint="module_3_bend_1" gear="1" />
+    <motor name="module_3_test_torque_2" joint="module_3_bend_2" gear="1" />
+    <motor name="module_3_test_torque_3" joint="module_3_bend_3" gear="1" />
+    <motor name="module_3_test_torque_4" joint="module_3_bend_4" gear="1" />
+    <motor name="module_3_test_torque_5" joint="module_3_bend_5" gear="1" />
+    <motor name="module_3_test_torque_6" joint="module_3_bend_6" gear="1" />
+    <motor name="module_3_test_torque_7" joint="module_3_bend_7" gear="1" />
+    <motor name="module_3_test_torque_8" joint="module_3_bend_8" gear="1" />
+    <motor name="module_3_test_torque_9" joint="module_3_bend_9" gear="1" />
+    <motor name="module_4_test_torque_1" joint="module_4_bend_1" gear="1" />
+    <motor name="module_4_test_torque_2" joint="module_4_bend_2" gear="1" />
+    <motor name="module_4_test_torque_3" joint="module_4_bend_3" gear="1" />
+    <motor name="module_4_test_torque_4" joint="module_4_bend_4" gear="1" />
+    <motor name="module_4_test_torque_5" joint="module_4_bend_5" gear="1" />
+    <motor name="module_4_test_torque_6" joint="module_4_bend_6" gear="1" />
+    <motor name="module_4_test_torque_7" joint="module_4_bend_7" gear="1" />
+    <motor name="module_4_test_torque_8" joint="module_4_bend_8" gear="1" />
+    <motor name="module_4_test_torque_9" joint="module_4_bend_9" gear="1" />
+  </actuator>
+  <sensor>
+    <jointpos name="module_0_angle_1" joint="module_0_bend_1" />
+    <jointvel name="module_0_velocity_1" joint="module_0_bend_1" />
+    <jointpos name="module_0_angle_2" joint="module_0_bend_2" />
+    <jointvel name="module_0_velocity_2" joint="module_0_bend_2" />
+    <jointpos name="module_0_angle_3" joint="module_0_bend_3" />
+    <jointvel name="module_0_velocity_3" joint="module_0_bend_3" />
+    <jointpos name="module_0_angle_4" joint="module_0_bend_4" />
+    <jointvel name="module_0_velocity_4" joint="module_0_bend_4" />
+    <jointpos name="module_0_angle_5" joint="module_0_bend_5" />
+    <jointvel name="module_0_velocity_5" joint="module_0_bend_5" />
+    <jointpos name="module_0_angle_6" joint="module_0_bend_6" />
+    <jointvel name="module_0_velocity_6" joint="module_0_bend_6" />
+    <jointpos name="module_0_angle_7" joint="module_0_bend_7" />
+    <jointvel name="module_0_velocity_7" joint="module_0_bend_7" />
+    <jointpos name="module_0_angle_8" joint="module_0_bend_8" />
+    <jointvel name="module_0_velocity_8" joint="module_0_bend_8" />
+    <jointpos name="module_0_angle_9" joint="module_0_bend_9" />
+    <jointvel name="module_0_velocity_9" joint="module_0_bend_9" />
+    <jointpos name="module_1_angle_1" joint="module_1_bend_1" />
+    <jointvel name="module_1_velocity_1" joint="module_1_bend_1" />
+    <jointpos name="module_1_angle_2" joint="module_1_bend_2" />
+    <jointvel name="module_1_velocity_2" joint="module_1_bend_2" />
+    <jointpos name="module_1_angle_3" joint="module_1_bend_3" />
+    <jointvel name="module_1_velocity_3" joint="module_1_bend_3" />
+    <jointpos name="module_1_angle_4" joint="module_1_bend_4" />
+    <jointvel name="module_1_velocity_4" joint="module_1_bend_4" />
+    <jointpos name="module_1_angle_5" joint="module_1_bend_5" />
+    <jointvel name="module_1_velocity_5" joint="module_1_bend_5" />
+    <jointpos name="module_1_angle_6" joint="module_1_bend_6" />
+    <jointvel name="module_1_velocity_6" joint="module_1_bend_6" />
+    <jointpos name="module_1_angle_7" joint="module_1_bend_7" />
+    <jointvel name="module_1_velocity_7" joint="module_1_bend_7" />
+    <jointpos name="module_1_angle_8" joint="module_1_bend_8" />
+    <jointvel name="module_1_velocity_8" joint="module_1_bend_8" />
+    <jointpos name="module_1_angle_9" joint="module_1_bend_9" />
+    <jointvel name="module_1_velocity_9" joint="module_1_bend_9" />
+    <jointpos name="module_2_angle_1" joint="module_2_bend_1" />
+    <jointvel name="module_2_velocity_1" joint="module_2_bend_1" />
+    <jointpos name="module_2_angle_2" joint="module_2_bend_2" />
+    <jointvel name="module_2_velocity_2" joint="module_2_bend_2" />
+    <jointpos name="module_2_angle_3" joint="module_2_bend_3" />
+    <jointvel name="module_2_velocity_3" joint="module_2_bend_3" />
+    <jointpos name="module_2_angle_4" joint="module_2_bend_4" />
+    <jointvel name="module_2_velocity_4" joint="module_2_bend_4" />
+    <jointpos name="module_2_angle_5" joint="module_2_bend_5" />
+    <jointvel name="module_2_velocity_5" joint="module_2_bend_5" />
+    <jointpos name="module_2_angle_6" joint="module_2_bend_6" />
+    <jointvel name="module_2_velocity_6" joint="module_2_bend_6" />
+    <jointpos name="module_2_angle_7" joint="module_2_bend_7" />
+    <jointvel name="module_2_velocity_7" joint="module_2_bend_7" />
+    <jointpos name="module_2_angle_8" joint="module_2_bend_8" />
+    <jointvel name="module_2_velocity_8" joint="module_2_bend_8" />
+    <jointpos name="module_2_angle_9" joint="module_2_bend_9" />
+    <jointvel name="module_2_velocity_9" joint="module_2_bend_9" />
+    <jointpos name="module_3_angle_1" joint="module_3_bend_1" />
+    <jointvel name="module_3_velocity_1" joint="module_3_bend_1" />
+    <jointpos name="module_3_angle_2" joint="module_3_bend_2" />
+    <jointvel name="module_3_velocity_2" joint="module_3_bend_2" />
+    <jointpos name="module_3_angle_3" joint="module_3_bend_3" />
+    <jointvel name="module_3_velocity_3" joint="module_3_bend_3" />
+    <jointpos name="module_3_angle_4" joint="module_3_bend_4" />
+    <jointvel name="module_3_velocity_4" joint="module_3_bend_4" />
+    <jointpos name="module_3_angle_5" joint="module_3_bend_5" />
+    <jointvel name="module_3_velocity_5" joint="module_3_bend_5" />
+    <jointpos name="module_3_angle_6" joint="module_3_bend_6" />
+    <jointvel name="module_3_velocity_6" joint="module_3_bend_6" />
+    <jointpos name="module_3_angle_7" joint="module_3_bend_7" />
+    <jointvel name="module_3_velocity_7" joint="module_3_bend_7" />
+    <jointpos name="module_3_angle_8" joint="module_3_bend_8" />
+    <jointvel name="module_3_velocity_8" joint="module_3_bend_8" />
+    <jointpos name="module_3_angle_9" joint="module_3_bend_9" />
+    <jointvel name="module_3_velocity_9" joint="module_3_bend_9" />
+    <jointpos name="module_4_angle_1" joint="module_4_bend_1" />
+    <jointvel name="module_4_velocity_1" joint="module_4_bend_1" />
+    <jointpos name="module_4_angle_2" joint="module_4_bend_2" />
+    <jointvel name="module_4_velocity_2" joint="module_4_bend_2" />
+    <jointpos name="module_4_angle_3" joint="module_4_bend_3" />
+    <jointvel name="module_4_velocity_3" joint="module_4_bend_3" />
+    <jointpos name="module_4_angle_4" joint="module_4_bend_4" />
+    <jointvel name="module_4_velocity_4" joint="module_4_bend_4" />
+    <jointpos name="module_4_angle_5" joint="module_4_bend_5" />
+    <jointvel name="module_4_velocity_5" joint="module_4_bend_5" />
+    <jointpos name="module_4_angle_6" joint="module_4_bend_6" />
+    <jointvel name="module_4_velocity_6" joint="module_4_bend_6" />
+    <jointpos name="module_4_angle_7" joint="module_4_bend_7" />
+    <jointvel name="module_4_velocity_7" joint="module_4_bend_7" />
+    <jointpos name="module_4_angle_8" joint="module_4_bend_8" />
+    <jointvel name="module_4_velocity_8" joint="module_4_bend_8" />
+    <jointpos name="module_4_angle_9" joint="module_4_bend_9" />
+    <jointvel name="module_4_velocity_9" joint="module_4_bend_9" />
+  </sensor>
+</mujoco>

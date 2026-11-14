@@ -1,0 +1,72 @@
+<mujoco model="tail_testing">
+  <compiler angle="degree" coordinate="local"/>
+
+  <option timestep="0.001" integrator="implicitfast" density="998" viscosity="0.001">
+    <flag contact="disable"/>
+  </option>
+
+  <visual>
+    <global offwidth="1920" offheight="1080"/>
+    <quality shadowsize="2048"/>
+    <headlight ambient="0.4 0.4 0.4" diffuse="0.8 0.8 0.8" specular="0.1 0.1 0.1"/>
+  </visual>
+
+  <asset>
+    <texture type="skybox" builtin="gradient" rgb1="0.95 0.97 1.0" rgb2="0.85 0.90 0.95" width="512" height="512"/>
+    <texture name="grid" type="2d" builtin="checker" rgb1="0.92 0.94 0.96" rgb2="0.88 0.91 0.94" width="512" height="512" mark="none"/>
+    <material name="grid_mat" texture="grid" texrepeat="2 2" reflectance="0.05"/>
+    <material name="pivot_mat" rgba="0.75 0.78 0.82 1.0" specular="0.6" shininess="0.5"/>
+    <material name="blade_mat" rgba="0.25 0.45 0.70 1.0" specular="0.4" shininess="0.3"/>
+    <material name="fluid_geom_mat" rgba="0.15 0.65 0.85 0.35" specular="0.2"/>
+  </asset>
+
+  <worldbody>
+    <light pos="0.1 0 1.5" dir="0 0 -1" diffuse="0.8 0.8 0.8" specular="0.2 0.2 0.2"/>
+    <light pos="-0.5 -0.5 1.0" dir="1 1 -1" diffuse="0.4 0.4 0.4"/>
+
+    <!-- Neutral ground / tank floor reference grid -->
+    <geom name="floor" type="plane" pos="0.115 0 -0.12" size="0.4 0.3 0.01" material="grid_mat"/>
+
+    <!-- Fixed / anchored base body with freejoint for generalized fluid force extraction -->
+    <body name="fixture" pos="0 0 0">
+      <freejoint name="root"/>
+
+      <!-- Pivot mount cylinder (visual reference circle) -->
+      <geom name="pivot_mount" type="cylinder" pos="0 0 0" size="0.025 0.08" material="pivot_mat" mass="2.0"/>
+      <site name="pivot_center" pos="0 0 0" size="0.004" rgba="0.9 0.2 0.1 1.0"/>
+
+      <!-- Moving tail section rotating around the pivot -->
+      <body name="tail" pos="0 0 0">
+        <!-- Pivot hinge joint along local Z axis -->
+        <joint name="pivot_joint" type="hinge" axis="0 0 1" pos="0 0 0" limited="true" range="-60 60" damping="0.05"/>
+
+        <!-- Structural blade / fin spine connecting pivot to tip -->
+        <geom name="tail_spine" type="capsule" fromto="0 0 0 0.23 0 0" size="0.005" material="blade_mat" mass="0.03"/>
+
+        <!-- Outer visual foil / fin plate -->
+        <geom name="tail_blade" type="box" pos="0.115 0 0" size="0.115 0.001 0.08" material="blade_mat" mass="0.05" contype="0" conaffinity="0"/>
+
+        <!--
+          Fluid Geometry: Ellipsoid with MuJoCo fluid interaction.
+          Dimensions:
+            Semi-major axis (length): a = 0.115 m (total length = 0.23 m = 230 mm)
+            Semi-minor axis (width):  b = 0.016 m (streamlined foil profile)
+            Vertical semi-axis (height): c = 0.080 m (total fin depth = 0.16 m = 160 mm)
+          Fluid coefficients:
+            [blunt_drag, slender_drag, angular_drag, kutta_lift, magnus_lift]
+        -->
+        <geom name="fluid_geometry" type="ellipsoid" pos="0.115 0 0" size="0.115 0.016 0.08"
+              fluidshape="ellipsoid" fluidcoef="0.5 0.25 1.5 1.0 1.0"
+              material="fluid_geom_mat" mass="0.10" contype="0" conaffinity="0"/>
+
+        <!-- Reference tracking sites -->
+        <site name="tail_com" pos="0.115 0 0" size="0.004" rgba="1.0 0.5 0.0 1.0"/>
+        <site name="tail_tip" pos="0.230 0 0" size="0.004" rgba="0.2 0.8 0.2 1.0"/>
+      </body>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <position name="pivot_actuator" joint="pivot_joint" kp="150" kv="15" ctrlrange="-60 60"/>
+  </actuator>
+</mujoco>

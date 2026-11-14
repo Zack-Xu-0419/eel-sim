@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "status": "provisional effective model; conditional on inherited pump-flow calibration",
+  "material": "DragonSkin30",
+  "parameters_si": {
+    "air": {
+      "volume_to_angle_rad_per_m3": 27465.796146022065,
+      "leak_conductance_m3_s_per_rad": 9.674674949569114e-07,
+      "equilibrium_angle_rad": -0.02833770090273234
+    },
+    "water": {
+      "volume_to_angle_rad_per_m3": 27465.796146022065,
+      "leak_conductance_m3_s_per_rad": 8.171601378048294e-07,
+      "equilibrium_angle_rad": -0.036055084597106976
+    }
+  },
+  "definitions": {
+    "v": "net transferred volume relative to balance; change in chamber-volume difference is 2*v",
+    "angle_sign": "theta=-Camera_Angle in the source recordings",
+    "Qpump": "actual signed pump flow B to A; do not pass ESC or PWM directly",
+    "Qleak": "effective return flow A to B; G inferred under stopped-pump conditions"
+  },
+  "validity": {
+    "gain_fit": "hard actuator, sine, ESC amplitude 20-100, 0.2-0.6 Hz, free bending",
+    "decay_fit": "one approximately +30-degree release per medium",
+    "excluded_physics": [
+      "pressure",
+      "load-dependent bending",
+      "hysteresis",
+      "frequency-dependent mechanical lag",
+      "pump-operating-state-dependent leakage"
+    ],
+    "not_verified": [
+      "negative-angle relaxation",
+      "other actuator geometries",
+      "arbitrary waveforms",
+      "absolute measured flow scale"
+    ]
+  },
+  "sources": [
+    {
+      "path": "Actuator_model/data/calibration_points.csv",
+      "sha256": "156e48472cb244af1d50ecd0894b7a985a41c02d59bff86810f6f732ed102a3b"
+    },
+    {
+      "path": "Actuator_model/data/parametric_summary.csv",
+      "sha256": "7a7137b414fdc8b9a3f6790d339cfce461a6247ee4a388f697d6a854866c5f2b"
+    },
+    {
+      "path": "Actuator_model/README.txt",
+      "sha256": "2b49a83b431d44eb57b5fdfe099c7701f37ac1ae15514fd0cf842844240f158c"
+    },
+    {
+      "path": "Actuator_model/act_fits.m",
+      "sha256": "c0715b322068ff538e920f08f5f5d0c99d49f74e5d98b4fbf4d7f03196b89144"
+    },
+    {
+      "path": "Actuator_model/act_equations.m",
+      "sha256": "d45d6ce78ee0d3b20c4b9b68ba122d008230e6b3779276f2990be831f9c99710"
+    },
+    {
+      "path": "Actuator_model/raw_runs/FreeDecay_Hard_AIR_20260416_144218.csv",
+      "sha256": "36ea30b119ff9b4a905eeae853fcb1472ea40808ee6f95bf067a5ee2e5ca353b"
+    },
+    {
+      "path": "Actuator_model/raw_runs/FreeDecay_Hard_WATER_20260416_182111.csv",
+      "sha256": "fcfb96d70f124c5f903d85f238e62f5068f25cdcd23da8b89dacad32d862957c"
+    },
+    {
+      "path": "Actuator_model/raw_runs/Hard_AIR_ESC60_0p3Hz_20260416_141718.csv",
+      "sha256": "53242b800c301bea9fb6feeee4e56766b6f7c2acd98c22dfd00f27efe79e4e2b"
+    },
+    {
+      "path": "Actuator_model/raw_runs/Hard_WATER_ESC60_0p3Hz_20260416_180434.csv",
+      "sha256": "1ac854e6e6550f0824247ad5f836d9a4f7266d5e85073ba3b4cb7800bc825bdc"
+    }
+  ],
+  "fit_source_record": "Outputs/actuator_fit/fitted_model.json",
+  "fit_source_sha256": "b1f1b14a49a79e8299b2c9a3569c8d33a9b8baa6e5a1c6ff497f7e8792252b45",
+  "description": "Editable volume-angle model; actual signed pump flow is supplied separately. SI parameters are authoritative.",
+  "units": {
+    "volume_to_angle_rad_per_m3": "rad/m^3",
+    "leak_conductance_m3_s_per_rad": "m^3/(s rad)",
+    "equilibrium_angle_rad": "rad"
+  }
+}

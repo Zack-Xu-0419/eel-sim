@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "status": "provisional zero-equilibrium effective model; conditional on inherited pump-flow calibration",
+  "material": "DragonSkin30",
+  "equations": [
+    "theta=kV*v",
+    "v_dot=Qpump-G*theta",
+    "tau=1/(kV*G)"
+  ],
+  "parameters_si": {
+    "water": {
+      "volume_to_angle_rad_per_m3": 28667.555985100094,
+      "leak_conductance_m3_s_per_rad": 9.471572000302143e-07,
+      "equilibrium_angle_rad": 0.0
+    },
+    "air": {
+      "volume_to_angle_rad_per_m3": 27262.95249100397,
+      "leak_conductance_m3_s_per_rad": 1.131439639258831e-06,
+      "equilibrium_angle_rad": 0.0
+    }
+  },
+  "parameters_display_units": {
+    "water": {
+      "volume_to_angle_deg_per_ml_transferred": 1.6425299669012383,
+      "leak_conductance_ml_s_per_deg": 0.016531011674497775,
+      "equilibrium_angle_deg": 0.0,
+      "tau_s": 36.82877433041142
+    },
+    "air": {
+      "volume_to_angle_deg_per_ml_transferred": 1.562052114800202,
+      "leak_conductance_ml_s_per_deg": 0.019747346992643494,
+      "equilibrium_angle_deg": 0.0,
+      "tau_s": 32.418709541985166
+    }
+  },
+  "units": {
+    "volume_to_angle_rad_per_m3": "rad/m^3",
+    "leak_conductance_m3_s_per_rad": "m^3/(s rad)",
+    "equilibrium_angle_rad": "rad"
+  },
+  "definitions": {
+    "v": "net transferred volume; chamber-volume difference changes by 2*v",
+    "angle_sign": "theta=-Camera_Angle; original baseline retained",
+    "Qpump": "actual signed pump flow; no electrical-to-flow conversion inside actuator model"
+  },
+  "pump_curve": {
+    "A_ml_min": 1345.0,
+    "D_ml_min": 620.0,
+    "B_per_command": 0.05,
+    "command_shift": 5.0,
+    "clip_amplitude": 90.0,
+    "C_command": 8.129043536310752,
+    "equation": "Q_ml_s=(A/(1+exp(-B*(u-C)))-D)/60",
+    "status": "inherited, not refitted; original flow measurements unavailable"
+  },
+  "fit_method": "Separate water then air: zero-offset raw decay tau, driven amplitude kV, G=1/(kV*tau)",
+  "limitations": [
+    "One positive release per medium; no repeat-release uncertainty",
+    "No actual flow/pressure measurements; absolute kV and G depend on inherited flow scale",
+    "G from pump-off decay is reused while pumping; effective leakage may include material relaxation",
+    "Zero equilibrium imposed on original camera reference; negative tails cannot be reproduced",
+    "Air and water gain fits have unequal specimen/condition coverage",
+    "Raw driven signals have uncertain PWM-to-flow mapping and remain diagnostics, not fit targets",
+    "No load dependence, hysteresis, extra mechanical phase lag, or surrounding-water forces"
+  ],
+  "sources": [
+    {
+      "path": "data/calibration_points.csv",
+      "sha256": "156e48472cb244af1d50ecd0894b7a985a41c02d59bff86810f6f732ed102a3b"
+    },
+    {
+      "path": "data/parametric_summary.csv",
+      "sha256": "7a7137b414fdc8b9a3f6790d339cfce461a6247ee4a388f697d6a854866c5f2b"
+    },
+    {
+      "path": "README.txt",
+      "sha256": "2b49a83b431d44eb57b5fdfe099c7701f37ac1ae15514fd0cf842844240f158c"
+    },
+    {
+      "path": "act_fits.m",
+      "sha256": "c0715b322068ff538e920f08f5f5d0c99d49f74e5d98b4fbf4d7f03196b89144"
+    },
+    {
+      "path": "act_equations.m",
+      "sha256": "d45d6ce78ee0d3b20c4b9b68ba122d008230e6b3779276f2990be831f9c99710"
+    },
+    {
+      "path": "raw_runs/FreeDecay_Hard_WATER_20260416_182111.csv",
+      "sha256": "fcfb96d70f124c5f903d85f238e62f5068f25cdcd23da8b89dacad32d862957c"
+    },
+    {
+      "path": "raw_runs/Hard_WATER_ESC60_0p3Hz_20260416_180434.csv",
+      "sha256": "1ac854e6e6550f0824247ad5f836d9a4f7266d5e85073ba3b4cb7800bc825bdc"
+    },
+    {
+      "path": "raw_runs/FreeDecay_Hard_AIR_20260416_144218.csv",
+      "sha256": "36ea30b119ff9b4a905eeae853fcb1472ea40808ee6f95bf067a5ee2e5ca353b"
+    },
+    {
+      "path": "raw_runs/Hard_AIR_ESC60_0p3Hz_20260416_141718.csv",
+      "sha256": "53242b800c301bea9fb6feeee4e56766b6f7c2acd98c22dfd00f27efe79e4e2b"
+    }
+  ]
+}
